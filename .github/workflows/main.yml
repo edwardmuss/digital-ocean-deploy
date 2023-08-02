@@ -1,21 +1,20 @@
+name: Build & Deploy
 on:
   push:
-    branches:
-      - main
-name: 🚀 Deploy test website on push
+    branches: [main]
+
 jobs:
-  web-deploy:
-    name: 🎉 Deploy DU Website
+  deploy:
     runs-on: ubuntu-latest
     steps:
-      - name: 🚚 Get latest code
-        uses: actions/checkout@v2.3.2
-
-      - name: 📂 Sync files
-        uses: SamKirkland/FTP-Deploy-Action@4.0.0
+      - name: Deploy any app
+        uses: appleboy/ssh-action@v0.1.2
         with:
-          server: 198.211.115.230
-          username: ${{ secrets.ftp_username}}
-          password: ${{ secrets.ftp_password }}
-          server-dir: /var/www/html/
-          
+          host: ${{secrets.SSH_HOST}} # IP address of the server you wish to ssh into
+          key: ${{secrets.SSH_KEY}} # Private or public key of the server
+          username: ${{ secrets.SSH_USERNAME }} # User of the server you want to ssh into
+     
+          script: |
+            cd /var/www/html 
+            git clone git@github.com:edwardmuss/digital-ocean-deploy.git 
+            echo 'Deployment successful to digital ocean' 
