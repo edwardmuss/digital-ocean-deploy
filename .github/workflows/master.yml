@@ -13,7 +13,6 @@ jobs:
 
         - name: Deploy file
           uses: wlixcc/SFTP-Deploy-Action@v1.2.4
-
           with:
             username: ${{ secrets.SSH_USERNAME}}
             password: ${{ secrets.SSH_PASSWORD }}
