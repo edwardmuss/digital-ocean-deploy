@@ -19,5 +19,5 @@ jobs:
             password: ${{ secrets.SSH_PASSWORD}}
             timeout: 30000000
             server-dir: /var/www/html/
-            protocol: ftps
+            protocol: sftp
             port: 22
