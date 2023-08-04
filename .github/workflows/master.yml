@@ -19,5 +19,6 @@ jobs:
             server: ${{ secrets.SSH_HOST }}
             ssh_private_key: ${{ secrets.SSH_KEY }}
             port: 22
+            local_path: './*'
             remote_path: '/var/www/html'
             sftp_only: true
