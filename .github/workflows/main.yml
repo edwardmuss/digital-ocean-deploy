@@ -18,4 +18,5 @@ jobs:
           username: ${{ secrets.DU_USERNAME}}
           password: ${{ secrets.DU_PASSWORD }}
           timeout: 30000000
+          protocal: ftps
           server-dir: /gitactions/
